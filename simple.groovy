@@ -14,11 +14,10 @@ pipeline {
                 script {
                     def rootdir = pwd()
                     sh "cd ${rootdir} && pwd && ls -l"
-                    sh "cd ${rootdir}@tmp && ls -l"
+                    sh "cd ${rootdir} && mkdir tmp && mv sshPublisher.groovy tmp/"
                     git (credentialsId: "${GITHUB_USER_ID}", url: 'https://github.com/Hopetree/jenkins-demos.git', branch: "master")
-                    sh "cd ${rootdir}/.. && ls -l"
                     sh "cd ${rootdir} && pwd && ls -l"
-                    sh "cd ${rootdir}@tmp && ls -l"
+                    sh "cd ${rootdir}/tmp && ls -l"
                 }
             }
         }
