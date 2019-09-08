@@ -11,7 +11,7 @@ pipeline {
                 script {
                     def rootdir = pwd()
                     sh "cd ${rootdir} && pwd && ls -l"
-                    sh "cd ${rootdir}/.. && ls -l"
+                    sh "cd ${rootdir}@tmp && ls -l"
                 }
             }
         }
