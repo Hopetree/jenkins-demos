@@ -9,8 +9,9 @@ pipeline {
         stage('create file') {
             steps {
                 script {
-                    def filename = 'test.log'
-                    sh "echo `date` > ${filename}"
+                    def rootdir = pwd()
+                    sh "cd ${rootdir} && pwd && ls -l"
+                    sh "cd ${rootdir}/.. && ls -l"
                 }
             }
         }

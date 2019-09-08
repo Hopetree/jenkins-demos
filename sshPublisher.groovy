@@ -23,7 +23,10 @@ pipeline {
                             sshTransfer(
                                 cleanRemote: false, 
                                 excludes: '', 
-                                execCommand: 'cd /opt/cloud/demos && ls -l', 
+                                execCommand: '''
+                                pwd
+                                ls -l
+                                date''', 
                                 execTimeout: 120000, 
                                 flatten: false, 
                                 makeEmptyDirs: false, 
